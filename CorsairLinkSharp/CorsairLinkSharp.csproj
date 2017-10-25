@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{3491ECDE-B9CF-4438-B4FB-A5B8B5C64894}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CorsairLinkSharp</RootNamespace>
+    <AssemblyName>CorsairLinkSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AssemblyOriginatorKeyFile>..\..\..\.ssh\id_rsa.pub</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\CorsairLinkSharp.xml</DocumentationFile>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>anycpu</PlatformTarget>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LinkDevice\Device.cs" />
+    <Compile Include="LinkDriver\Driver.cs" />
+    <Compile Include="LinkDriver\Enums.cs" />
+    <Compile Include="LinkDriver\Attributes.cs" />
+    <Compile Include="Tools\udevInterop.cs" />
+    <Compile Include="LinkDriver\HID\HidDriver.cs" />
+    <Compile Include="LinkDriver\HID\KnownDevices.cs" />
+    <Compile Include="LinkDevice\Led.cs" />
+    <Compile Include="LinkDevice\Fan.cs" />
+    <Compile Include="LinkDevice\Component.cs" />
+    <Compile Include="LinkDevice\Sensor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LinkDevice\" />
+    <Folder Include="LinkDriver\" />
+    <Folder Include="Tools\" />
+    <Folder Include="LinkDriver\HID\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Deployment.LinuxDeployData scriptName="CorsairLinkSharp" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
